@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- <script>
+      if (!window.Telegram?.WebApp) {
+        window.Telegram = {
+          WebApp: {
+            initData:
+              "query_id=AAHdF6IQAAAAAJ0KjQECeQ4N&user=%7B%22id%22%3A123456789%2C%22first_name%22%3A%22John%22%2C%22last_name%22%3A%22Doe%22%7D",
+            initDataUnsafe: {
+              user: {
+                id: 123456789,
+                first_name: "John",
+                last_name: "Doe",
+              },
+            },
+            ready: () => console.log("WebApp ready"),
+            expand: () => console.log("WebApp expanded"),
+            enableClosingConfirmation: () =>
+              console.log("Closing confirmation enabled"),
+            showAlert: (msg) => alert(msg),
+            sendData: (data) => console.log("Data sent:", data),
+          },
+        };
+      }
+    </script> -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

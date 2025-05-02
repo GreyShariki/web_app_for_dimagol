@@ -1,0 +1,204 @@
+/* Базовые стили в уличном стиле */
+.drip-catalog {
+  font-family: "Bebas Neue", "Arial Narrow", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  color: #111;
+}
+
+.drip-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #111;
+  padding-bottom: 15px;
+}
+
+.drip-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.drip-tagline {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Сетка товаров */
+.drip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.drip-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.drip-card:hover {
+  transform: translateY(-5px);
+}
+
+.drip-card-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+.drip-card-info {
+  padding: 15px;
+}
+
+.drip-card-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+.drip-price {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.drip-buy-btn {
+  width: 100%;
+  background: #111;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+
+.drip-buy-btn:hover {
+  background: #333;
+}
+
+/* Модальное окно */
+.drip-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.drip-modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.drip-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.drip-modal-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0 20px;
+}
+
+/* Форма */
+.drip-form-group {
+  margin-bottom: 15px;
+}
+
+.drip-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.drip-input,
+.drip-select,
+.drip-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #111;
+  background: none;
+  font-family: inherit;
+}
+
+.drip-textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.drip-submit-btn {
+  width: 100%;
+  background: #111;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-top: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+
+.drip-submit-btn:hover {
+  background: #333;
+}
+.drip-user {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.debug-info {
+  padding: 10px;
+  background: #222;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.debug-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.debug-info strong {
+  color: #0f0;
+}
+
+.drip-submit-btn {
+  background: #0088cc;
+  transition: background 0.2s;
+}
+
+.drip-submit-btn:hover {
+  background: #006699;
+}
+.drip-input,
+.drip-select,
+.drip-textarea {
+  box-sizing: border-box;
+}
