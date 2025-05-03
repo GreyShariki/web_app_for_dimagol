@@ -11,6 +11,7 @@ export default function Catalog() {
     quantity: 1,
     comment: "",
   });
+
   useEffect(() => {
     if (window.Telegram?.WebApp) {
       window.Telegram.WebApp.ready();
@@ -27,32 +28,18 @@ export default function Catalog() {
       } else {
         console.warn("User not found in initDataUnsafe");
       }
+
+      const fetchProducts = async () => {
+        try {
+          const response = await getProducts();
+          setProducts(response);
+        } catch (err) {
+          console.error("Ошибка при загрузке товаров:", err);
+        }
+      };
+
+      fetchProducts();
     }
-  }, []);
-  useEffect(() => {
-    if (window.Telegram?.WebApp) {
-      window.Telegram.WebApp.ready();
-      window.Telegram.WebApp.expand();
-
-      if (tgUser) {
-        setUserData({
-          id: tgUser.id,
-          name: `${tgUser.first_name} ${tgUser.last_name || ""}`.trim(),
-          username: tgUser.username,
-        });
-      }
-    }
-
-    const fetchProducts = async () => {
-      try {
-        const response = await getProducts();
-        setProducts(response);
-      } catch (err) {
-        console.error("Ошибка при загрузке товаров:", err);
-      }
-    };
-
-    fetchProducts();
   }, []);
 
   const handleBuyClick = (product) => {
@@ -100,6 +87,7 @@ export default function Catalog() {
       throw error;
     }
   };
+
   return (
     <div className="drip-catalog">
       <header className="drip-header">
@@ -116,7 +104,7 @@ export default function Catalog() {
             />
             <div className="drip-card-info">
               <h3>{product.name}</h3>
-              <p className="drip-description">{product.description}</p>{" "}
+              <p className="drip-description">{product.description}</p>
               <div className="drip-price">{product.price}₽</div>
               <button
                 className="drip-buy-btn"
