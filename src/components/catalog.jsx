@@ -101,7 +101,6 @@ export default function Catalog() {
             <div className="drip-card-info">
               <h3>{product.name}</h3>
               <p className="drip-description">{product.description}</p>{" "}
-              {/* Новый блок */}
               <div className="drip-price">{product.price}₽</div>
               <button
                 className="drip-buy-btn"
@@ -114,7 +113,6 @@ export default function Catalog() {
         ))}
       </div>
 
-      {/* Модалка с формой заказа */}
       {selectedProduct && (
         <div className="drip-modal">
           <div className="drip-modal-content">
@@ -179,30 +177,6 @@ export default function Catalog() {
           </div>
         </div>
       )}
-
-      <div className="drip-debug">
-        <h3>ТЕКУЩИЙ ВЫБОР</h3>
-        <table className="drip-debug-table">
-          <tbody>
-            <tr>
-              <td className="debug-label">Товар:</td>
-              <td>{selectedProduct ? selectedProduct.name : "Не выбран"}</td>
-            </tr>
-            <tr>
-              <td className="debug-label">Размер:</td>
-              <td>{orderForm.size || "-"}</td>
-            </tr>
-            <tr>
-              <td className="debug-label">Количество:</td>
-              <td>{orderForm.quantity}</td>
-            </tr>
-            <tr>
-              <td className="debug-label">Комментарий:</td>
-              <td>{orderForm.comment || "-"}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
   );
 }
