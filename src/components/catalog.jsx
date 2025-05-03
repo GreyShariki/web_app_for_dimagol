@@ -100,6 +100,8 @@ export default function Catalog() {
             />
             <div className="drip-card-info">
               <h3>{product.name}</h3>
+              <p className="drip-description">{product.description}</p>{" "}
+              {/* Новый блок */}
               <div className="drip-price">{product.price}₽</div>
               <button
                 className="drip-buy-btn"
