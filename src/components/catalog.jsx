@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getProducts } from "./back/getCatalog";
+import { addCart } from "./back/addCart";
 
 export default function Catalog() {
   const [userData, setUserData] = useState(null);
@@ -9,11 +10,9 @@ export default function Catalog() {
     size: "",
     quantity: 1,
     comment: "",
-    chat_id: userData.id,
   });
 
   useEffect(() => {
-    // Telegram init
     if (window.Telegram?.WebApp) {
       window.Telegram.WebApp.ready();
       window.Telegram.WebApp.expand();
@@ -27,12 +26,7 @@ export default function Catalog() {
         });
       }
     }
-    const handleSubmit = async () => {
-      try {
-      } catch (error) {
-        alert("Ошибка");
-      }
-    };
+
     const fetchProducts = async () => {
       try {
         const response = await getProducts();
@@ -61,6 +55,35 @@ export default function Catalog() {
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!selectedProduct || !userData) {
+      alert("Товар не выбран или пользователь не определен");
+      return;
+    }
+
+    try {
+      const cartData = {
+        user_id: userData.id,
+        product_id: selectedProduct.id,
+        size: orderForm.size,
+        quantity: orderForm.quantity,
+        comment: orderForm.comment,
+      };
+
+      const response = await addCart(cartData);
+
+      alert("Товар добавлен в корзину!");
+      setSelectedProduct(null);
+
+      return response;
+    } catch (error) {
+      console.error("Ошибка при добавлении в корзину:", error);
+      alert(`Ошибка: ${error.message}`);
+      throw error;
+    }
+  };
   return (
     <div className="drip-catalog">
       <header className="drip-header">
