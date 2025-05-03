@@ -9,6 +9,7 @@ export default function Catalog() {
     size: "",
     quantity: 1,
     comment: "",
+    chat_id: userData.id,
   });
 
   useEffect(() => {
@@ -26,8 +27,12 @@ export default function Catalog() {
         });
       }
     }
-
-    // Загрузка товаров
+    const handleSubmit = async () => {
+      try {
+      } catch (error) {
+        alert("Ошибка");
+      }
+    };
     const fetchProducts = async () => {
       try {
         const response = await getProducts();
@@ -138,7 +143,11 @@ export default function Catalog() {
                 />
               </div>
 
-              <button type="button" className="drip-buy-btn">
+              <button
+                onClick={handleSubmit}
+                type="button"
+                className="drip-buy-btn"
+              >
                 ЗАКАЗАТЬ
               </button>
             </form>
