@@ -11,13 +11,29 @@ export default function Catalog() {
     quantity: 1,
     comment: "",
   });
-
   useEffect(() => {
     if (window.Telegram?.WebApp) {
       window.Telegram.WebApp.ready();
       window.Telegram.WebApp.expand();
 
-      const tgUser = window.Telegram.WebApp.initDataUnsafe?.user;
+      const initUser = window.Telegram.WebApp.initDataUnsafe?.user;
+
+      if (initUser) {
+        setUserData({
+          id: initUser.id,
+          name: `${initUser.first_name} ${initUser.last_name || ""}`.trim(),
+          username: initUser.username,
+        });
+      } else {
+        console.warn("User not found in initDataUnsafe");
+      }
+    }
+  }, []);
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+
       if (tgUser) {
         setUserData({
           id: tgUser.id,
@@ -58,7 +74,7 @@ export default function Catalog() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!selectedProduct) {
+    if (!selectedProduct || !userData) {
       alert("Товар не выбран или пользователь не определен");
       return;
     }
