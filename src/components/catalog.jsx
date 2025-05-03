@@ -96,7 +96,7 @@ export default function Catalog() {
           <div key={product.id} className="drip-card">
             <div
               className="drip-card-image"
-              style={{ backgroundImage: `url(${product.photo})` }}
+              style={{ backgroundImage: `url(./images/${product.photo})` }}
             />
             <div className="drip-card-info">
               <h3>{product.name}</h3>
