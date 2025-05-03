@@ -58,7 +58,7 @@ export default function Catalog() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!selectedProduct || !userData) {
+    if (!selectedProduct) {
       alert("Товар не выбран или пользователь не определен");
       return;
     }
