@@ -1,5 +1,5 @@
 export const addCart = async (data) => {
-  const response = await fetch("http://localhost:3000/api/addCart", {
+  const response = await fetch("https://apikazakovm/api/addCart", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
